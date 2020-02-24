@@ -18,6 +18,6 @@ node {
               }
        }
 		stage('Remove Unused docker image') {
-			sh "docker rmi ${registry}:${BUILD_NUMBER}"
+			sh "docker rmi '${registry}':'${BUILD_NUMBER}'"
 		}
 }
