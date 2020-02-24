@@ -1,6 +1,6 @@
 node { 
         stage('Checkout') {
-            git url: 'https://github.com/arjun-venkatesh1/registration-login-java-xml-maven-jsp-mysql.git', credentialsId: 'githubtoken', branch: 'master'
+            git url: 'https://github.com/arjun-venkatesh1/registration-login-java-xml-maven-jsp-mysql.git', branch: 'master'
         }
         def app
         stage('Image') {
