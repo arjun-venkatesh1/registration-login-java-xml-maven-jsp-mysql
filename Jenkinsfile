@@ -18,6 +18,6 @@ node {
               }
        }
 	stage('Remove Unused docker image') {
-		sh "docker system prune"
+		sh "docker system prune -y"
 	}
 }
