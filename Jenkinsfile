@@ -1,7 +1,4 @@
-node {
- 
-    withMaven(maven:'maven 3.6.3') {
- 
+node { 
         stage('Checkout') {
             git url: 'https://github.com/arjun-venkatesh1/registration-login-java-xml-maven-jsp-mysql.git', credentialsId: 'githubtoken', branch: 'master'
         }
@@ -16,5 +13,4 @@ node {
                 app.push('latest')
               }
        }    
-    }
 }
