@@ -13,10 +13,11 @@ node {
        stage('Docker push')
         {
             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+		app.push()
                 app.push('latest')
               }
        }
-		stage('Remove Unused docker image') {
-			sh "docker rmi ${env.registry}:${env.BUILD_NUMBER}"
-		}
+	stage('Remove Unused docker image') {
+		sh "docker rmi ${env.registry}:${env.BUILD_NUMBER}"
+	}
 }
