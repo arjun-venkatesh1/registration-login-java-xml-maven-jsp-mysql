@@ -18,6 +18,6 @@ node {
               }
        }
 	stage('Remove Unused docker image') {
-		sh "docker rmi ${env.registry}:${env.BUILD_NUMBER}"
+		sh "docker system prune"
 	}
 }
