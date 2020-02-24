@@ -11,12 +11,9 @@ node {
        }
        stage('Docker push')
         {
-            docker.withRegistry('https://registry.hub.docker.com', ${registryCredential}) {
+            docker.withRegistry('https://registry.hub.docker.com', "${registryCredential}") {
 		app.push()
                 app.push('latest')
               }
        }
-	stage('Remove Unused docker image') {
-		sh "docker system prune --all -f"
-	}
 }
