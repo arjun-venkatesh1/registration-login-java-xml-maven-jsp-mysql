@@ -12,7 +12,7 @@ node {
        }
        stage('Docker push')
         {
-            docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                 app.push()
                 app.push('latest')
               }
