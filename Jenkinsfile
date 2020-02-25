@@ -20,7 +20,7 @@ node {
 			kubernetesDeploy(
 				credentialsType: 'KubeConfig',
 				kubeConfig: [path: '/root/.jenkins/workspace/.kube/config'],
-				configs: '/home/arjunsin143as/k8s/application-deployment.yml',
+				configs: '/home/arjunsin143as/k8s/application-deployment.yml'
 			)
 	   }
 }
