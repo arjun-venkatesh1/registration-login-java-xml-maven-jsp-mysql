@@ -17,7 +17,13 @@ node {
               }
        }
 	   stage('Deployment to Kubernetes cluster') {
-			kubernetesDeploy credentialsType: 'KubeConfig', kubeConfig: [path: '/root/.jenkins/workspace/.kube/config'], configs: '/home/arjunsin143as/k8s/application-deployment.yml'
+			kubernetesDeploy(kubeconfigId: 'kube-config',
+				configs: '/home/arjunsin143as/k8s/application-deployment.yml',
+				enableConfigSubstitution: false,
+				dockerCredentials: [
+                        [credentialsId: 'dockerhub'],
+                 ]
+			)
 	   }
 }
 pipeline {
