@@ -16,6 +16,9 @@ node {
                 app.push('latest')
               }
        }
+	   stage('Deployment to Kubernetes cluster') {
+		kubernetesDeploy configs: '/home/arjunsin143as/k8s/application-deployment.yml', kubeConfig: [path: ''], kubeconfigId: 'kube-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+	   }
 }
 pipeline {
    
