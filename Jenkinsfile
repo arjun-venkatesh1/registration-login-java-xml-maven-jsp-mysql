@@ -17,7 +17,11 @@ node {
               }
        }
 	   stage('Deployment to Kubernetes cluster') {
-		kubernetesDeploy configs: '/home/arjunsin143as/k8s/application-deployment.yml', kubeConfig: [path: ''], kubeconfigId: 'kube-config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+			kubernetesDeploy(
+				credentialsType: 'KubeConfig',
+				kubeConfig: [path: '/root/.jenkins/workspace/.kube/config'],
+				configs: '/home/arjunsin143as/k8s/application-deployment.yml',
+			)
 	   }
 }
 pipeline {
