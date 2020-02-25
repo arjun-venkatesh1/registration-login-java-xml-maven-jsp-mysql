@@ -17,3 +17,19 @@ node {
               }
        }
 }
+pipeline {
+   
+    agent any
+    stages {
+        stage('test'){
+            steps {
+                echo 'Cleaning Work Space'
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
