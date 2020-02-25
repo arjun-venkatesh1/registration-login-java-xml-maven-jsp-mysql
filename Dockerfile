@@ -10,13 +10,13 @@ RUN mkdir /usr/local/tomcat
 RUN mkdir /usr/local/arjun
 
 # Download tomcat
-RUN wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz -O /tmp/tomcat.tar.gz
+RUN wget http://mirrors.estointernet.in/apache/tomcat/tomcat-7/v7.0.100/bin/apache-tomcat-7.0.100.tar.gz -O /tmp/tomcat.tar.gz
 
 # Untar the downloaded Tomcat file
 RUN cd /tmp && tar xvfz tomcat.tar.gz
 
 # Copy the tomcat files to the directory created earlier
-RUN cp -Rv /tmp/apache-tomcat-8.5.51/* /usr/local/tomcat/
+RUN cp -Rv /tmp/apache-tomcat-7.0.100/* /usr/local/tomcat/
 
 # Expose port 8080 of the container
 EXPOSE 8080
