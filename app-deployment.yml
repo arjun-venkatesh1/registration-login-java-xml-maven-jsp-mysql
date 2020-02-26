@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: login-app
-        image: arjunvyadav/myapp:latest
+        image: arjunvyadav/myapp:tagVersion
         ports:
         - containerPort: 8080
