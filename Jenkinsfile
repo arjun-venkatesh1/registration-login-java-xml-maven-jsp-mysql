@@ -29,3 +29,20 @@ node {
 			}
 	   }
 }
+
+pipeline {
+   
+    agent any
+    stages {
+        stage('Cleaning Work Space'){
+            steps {
+                echo 'Cleaning Work Space'
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
