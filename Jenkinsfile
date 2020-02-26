@@ -17,6 +17,9 @@ node {
               }
        }
 	   stage('Deployment to Kubernetes cluster') {
+		sh "chmod +x changeTag.sh"
+		sh "./changeTag.sh ${env.BUILD_NUMBER}"
+		sh "rm app-deployment.yml"
 			script{
 				try{
 					sh "kubectl apply -f ."
@@ -25,20 +28,4 @@ node {
 				}
 			}
 	   }
-}
-pipeline {
-   
-    agent any
-    stages {
-        stage('test'){
-            steps {
-                echo 'Cleaning Work Space'
-            }
-        }
-    }
-    post {
-        always {
-            cleanWs()
-        }
-    }
 }
