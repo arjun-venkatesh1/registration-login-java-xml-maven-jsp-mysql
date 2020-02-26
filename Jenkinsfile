@@ -17,13 +17,13 @@ node {
               }
        }
 	   stage('Deployment to Kubernetes cluster') {
-			kubernetesDeploy(kubeconfigId: 'kube-config',
-				configs: '/home/arjunsin143as/k8s/application-deployment.yml',
-				enableConfigSubstitution: false,
-				dockerCredentials: [
-                        [credentialsId: 'dockerhub'],
-                 ]
-			)
+			script{
+				try{
+					sh "kubectl apply -f ."
+				}catch(error){
+					sh "kubectl create -f ."
+				}
+			}
 	   }
 }
 pipeline {
