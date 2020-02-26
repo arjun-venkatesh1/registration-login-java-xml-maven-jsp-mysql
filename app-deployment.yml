@@ -20,5 +20,6 @@ spec:
       containers:
       - name: login-app
         image: arjunvyadav/myapp:tagVersion
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
