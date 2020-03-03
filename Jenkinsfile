@@ -1,6 +1,4 @@
 node {
-	def registry = "arjunvyadav/myapp"
-	def registryCredential = "dockerhub"
 
         stage('Checkout') {
             git url: 'https://github.com/arjun-venkatesh1/registration-login-java-xml-maven-jsp-mysql.git', branch: 'master'
